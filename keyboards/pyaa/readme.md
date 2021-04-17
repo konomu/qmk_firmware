@@ -1,12 +1,12 @@
 # pyaa
 
-![pyaa](imgur.com image replace me!)
+![pyaa](https://raw.githubusercontent.com/konomu/pyaa/main/pictures/pyaaimage.jpg)
 
-pyaa is a 
+A 30 key stenography keyboard based on Georgi's chording firmware. PCB design files are available on [pyaa's hardware page](https://github.com/konomu/pyaa)
 
 * Keyboard Maintainer: [konomu](https://github.com/konomu)
-* Hardware Supported: Pro Micro and variants (Elite C, nice!nano, etc.)
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: pyaa
+* Hardware Availability: Hardware can be ordered directly through PCB manufacturers (i.e. [JLCPCB](https://jlcpcb.com/)) with the gerber file found on pyaa's hardware page.
 
 Make example for this keyboard (after setting up your build environment):
 
