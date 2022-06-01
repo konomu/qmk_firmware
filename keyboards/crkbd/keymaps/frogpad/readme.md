@@ -1,6 +1,6 @@
 # konomu's one handed keyboard
 
-<img src="https://i.imgur.com/VWQMUk7.png" alt="default layout" width="800">
+<img src="https://i.postimg.cc/7LP158hz/konomu.png" alt="default layout" width="800">
 
 The concept of the Frogpad was first devised around April of 1997 by 
 Ryozo "Ken" Tsubai and its design was finalized around February of 2004 
@@ -54,7 +54,7 @@ in your config.h
 * In the case of same finger bigrams, increased the amount of downward motions, which are more comfortable.
 	* For example, swapping A and I was an efficient change because 'ea' and 'ie' are both more common than 'ae' and 'ei'.
 
-![improvement](https://i.imgur.com/auVktOh.png)
+![improvement](https://i.postimg.cc/JhHVVJqG/frogpad-vs-konomu.png)
 
 ## Guidelines for usage
 <p>The defined COMBO_TERM in the config.h is set to 60, which means that to type a letter on the combo layer, you must hit both keys
