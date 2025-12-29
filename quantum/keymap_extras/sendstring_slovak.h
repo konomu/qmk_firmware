@@ -18,8 +18,8 @@
 
 #pragma once
 
+#include "send_string.h"
 #include "keymap_slovak.h"
-#include "quantum.h"
 
 // clang-format off
 
@@ -63,6 +63,26 @@ const uint8_t ascii_to_altgr_lut[16] PROGMEM = {
     KCLUT_ENTRY(0, 0, 0, 1, 1, 1, 1, 0)
 };
 
+const uint8_t ascii_to_dead_lut[16] PROGMEM = {
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 1, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0),
+    KCLUT_ENTRY(0, 0, 0, 0, 0, 0, 0, 0)
+};
+
 const uint8_t ascii_to_keycode_lut[128] PROGMEM = {
     // NUL   SOH      STX      ETX      EOT      ENQ      ACK      BEL
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -78,7 +98,7 @@ const uint8_t ascii_to_keycode_lut[128] PROGMEM = {
     // (     )        *        +        ,        -        .        /
     SK_ADIA, SK_NCAR, SK_AMPR, SK_PLUS, SK_COMM, SK_MINS, SK_DOT,  SK_UACU,
     // 0     1        2        3        4        5        6        7
-    SK_EACU, SK_PLUS, SK_LACU, SK_SCAR, SK_CCAR, SK_TACU, SK_ZCAR, SK_YACU,
+    SK_EACU, SK_PLUS, SK_LCAR, SK_SCAR, SK_CCAR, SK_TCAR, SK_ZCAR, SK_YACU,
     // 8     9        :        ;        <        =        >        ?
     SK_AACU, SK_IACU, SK_DOT,  SK_SCLN, SK_AMPR, SK_EQL,  SK_Y,    SK_COMM,
     // @     A        B        C        D        E        F        G
@@ -88,13 +108,13 @@ const uint8_t ascii_to_keycode_lut[128] PROGMEM = {
     // P     Q        R        S        T        U        V        W
     SK_P,    SK_Q,    SK_R,    SK_S,    SK_T,    SK_U,    SK_V,    SK_W,
     // X     Y        Z        [        \        ]        ^        _
-    SK_X,    SK_Y,    SK_Z,    SK_F,    SK_Q,    SK_G,    SK_3,    SK_MINS,
+    SK_X,    SK_Y,    SK_Z,    SK_F,    SK_Q,    SK_G,    SK_SCAR, SK_MINS,
     // `     a        b        c        d        e        f        g
-    SK_7,    SK_A,    SK_B,    SK_C,    SK_D,    SK_E,    SK_F,    SK_G,
+    SK_YACU, SK_A,    SK_B,    SK_C,    SK_D,    SK_E,    SK_F,    SK_G,
     // h     i        j        k        l        m        n        o
     SK_H,    SK_I,    SK_J,    SK_K,    SK_L,    SK_M,    SK_N,    SK_O,
     // p     q        r        s        t        u        v        w
     SK_P,    SK_Q,    SK_R,    SK_S,    SK_T,    SK_U,    SK_V,    SK_W,
     // x     y        z        {        |        }        ~        DEL
-    SK_X,    SK_Y,    SK_Z,    SK_B,    SK_W,    SK_N,    SK_1,    KC_DEL
+    SK_X,    SK_Y,    SK_Z,    SK_B,    SK_W,    SK_N,    SK_PLUS, KC_DEL
 };

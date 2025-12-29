@@ -1,30 +1,9 @@
-/* Copyright 2018 Carlos Filoteo
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright 2018 Carlos Filoteo
+// SPDX-License-Identifier: GPL-2.0-or-later
 #include QMK_KEYBOARD_H
-#ifdef LED_ENABLE
-  #include "protocol/serial.h"
-#endif
 
 #define LT3_TAB LT(3, KC_TAB)
 #define MT_RSFT_ENT MT(MOD_RSFT, KC_ENT)
-
-enum custom_keycodes {
-    LED_TOG = SAFE_RANGE,
-    LED_CHG
-};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -43,8 +22,8 @@ LAYOUT(
 ),
 
 LAYOUT(
-  KC_FN6,  KC_FN7,  KC_FN8,  KC_FN9,  KC_FN10, KC_FN11, KC_FN12, KC_FN13, KC_FN14, KC_FN15, KC_FN16, KC_DELETE,
-  _______, _______, _______, _______, _______, _______, _______, KC_FN17, KC_FN18, KC_FN19, KC_FN20, KC_FN21,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_DELETE,
+  _______, _______, _______, _______, _______, _______, _______, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
   _______, _______, _______, KC_CAPS, _______,     _______,      _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END
 ),
@@ -52,36 +31,7 @@ LAYOUT(
 LAYOUT( /* Tab */
   KC_ESC,  KC_CALC, KC_WHOM, KC_MAIL, KC_MYCM, _______, _______, _______, _______, _______, KC_PSCR, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, _______, _______, _______,
-  _______, _______, _______, _______, _______,     _______,      _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R
+  _______, UG_TOGG, UG_NEXT, UG_HUEU, UG_HUED, UG_SATU, UG_SATD, UG_VALU, UG_VALD, _______, _______, _______,
+  _______, _______, _______, _______, _______,     _______,      _______, MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT
 ),
 };
-
-//LED keymap functions
- #ifdef LED_ENABLE
-void led_chmode(void) {
-  serial_send(101);
-}
-
-void led_toggle(void) {
-  serial_send(100);
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    switch(keycode) {
-      case LED_TOG:
-        #ifdef LED_ENABLE
-        led_toggle();
-        #endif
-        return false;
-      case LED_CHG:
-        #ifdef LED_ENABLE
-        led_chmode();
-        #endif
-        return false;
-    }
-  }
-  return true;
-};
-#endif

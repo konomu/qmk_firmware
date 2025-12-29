@@ -1,34 +1,21 @@
 {
+    "$id": "qmk.api.keyboard.v1",
     "allOf": [
-        { "$ref": "qmk.keyboard.v1" },
+        {"$ref": "./keyboard.jsonschema#"},
         {
-            "$id": "qmk.api.keyboard.v1",
-            "keymaps": {
-                "type": "string"
-            },
-            "parse_errors": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                }
-            },
-            "parse_warnings": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                }
-            },
-            "processor_type": {
-                "type": "string"
-            },
-            "protocol": {
-                "type": "string"
-            },
-            "keyboard_folder": {
-                "type": "string"
-            },
-            "platform": {
-                "type": "string"
+            "properties": {
+                "keymaps": {
+                    "type": "object",
+                    "properties": {
+                        "url": {"type": "string"}
+                    }
+                },
+                "parse_errors": {"$ref": "./definitions.jsonschema#/string_array"},
+                "parse_warnings": {"$ref": "./definitions.jsonschema#/string_array"},
+                "processor_type": {"type": "string"},
+                "protocol": {"type": "string"},
+                "keyboard_folder": {"type": "string"},
+                "platform": {"type": "string"}
             }
         }
     ]

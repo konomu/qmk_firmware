@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     \---------------------------------------'
     */
     [1] = LAYOUT(
-        _______,     _______,     _______,      RESET,
+        _______,     _______,     _______,      QK_BOOT,
         _______,     _______,     _______,      KC_KP_PLUS,
         _______,     _______,     _______,      KC_KP_MINUS,
         _______,     _______,     _______,      KC_EQL
@@ -72,7 +72,7 @@ void keyboard_post_init_user(void) {
     // debug_mouse = true;
 }
 
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     /*  Custom encoder control - handles CW/CCW turning of encoder
      *  Default behavior:
      *    left encoder:
@@ -95,9 +95,9 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             case 0:
                 // main layer - move mouse right (CW) and left (CCW)
                 if (clockwise) {
-                    tap_code(KC_MS_R);
+                    tap_code(MS_RGHT);
                 } else {
-                    tap_code(KC_MS_L);
+                    tap_code(MS_LEFT);
                 }
                 break;
 
@@ -131,4 +131,5 @@ void encoder_update_user(uint8_t index, bool clockwise) {
                 break;
         }
     }
+    return true;
 }

@@ -1,9 +1,13 @@
 # Python requirements
-appdirs
+# platformdirs
 argcomplete
 colorama
 dotty-dict
+hid
 hjson
-jsonschema>=3
-milc>=1.3.0
+jsonschema>=4
+milc>=1.9.0
 pygments
+pyserial
+pyusb
+pillow
